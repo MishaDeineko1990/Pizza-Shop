@@ -1,4 +1,5 @@
-class CreateProducts < ActiveRecord::Migration
+class CreateProduction < ActiveRecord::Migration[6.0]
+
   def change
 
   	create_table :products do |t|
@@ -15,4 +16,7 @@ class CreateProducts < ActiveRecord::Migration
   	end
 
   end
+
+
+
 end
