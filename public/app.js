@@ -1,18 +1,23 @@
 function something()
 {
 
-	var x = window.localStorage.getItem('bbb'); // x = hh['bbb']
+	localStorage.clear();
 
-	x = x * 1 + 1; // x = x + 1
 
-	window.localStorage.setItem('bbb', x); // hh['bbb'] = x
 
-	alert(x);
+				// BLOCK ADD TO LOCALSTOREGE VARIBLE
+	// var x = window.localStorage.getItem('bbb'); // x = hh['bbb']
+	// x = x * 1 + 1; // x = x + 1
+	// window.localStorage.setItem('bbb', x); // hh['bbb'] = x
+	// alert(x);
+
 };
 
 
 
 function add_to_cart(id)
 {
-	alert('You aded pizza with id '+id);
+	var x =  window.localStorage.getItem('product_'+id);
+	x = (x*1)+1;
+	window.localStorage.setItem('product_'+id,x);
 };
