@@ -23,3 +23,14 @@ function add_to_cart(id)
 	x = (x*1)+1;
 	window.localStorage.setItem(key,x);
 };
+
+function cart_get_number_items()
+{
+	for(let i = 0; i<window.localStorage.length; i++)
+	{
+		let key = window.localStorage.key(i);
+		let value = window.localStorage.getItem(key);
+	}
+
+		
+};
