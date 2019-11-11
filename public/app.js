@@ -26,11 +26,21 @@ function add_to_cart(id)
 
 function cart_get_number_items()
 {
+	let cnt = 0;
+
 	for(let i = 0; i<window.localStorage.length; i++)
 	{
 		let key = window.localStorage.key(i);
 		let value = window.localStorage.getItem(key);
+
+		if(key.indexOf('product')==0)
+		{
+			cnt = cnt + value *1;
+
+			
+		}
 	}
 
+	return cnt;
 		
 };
