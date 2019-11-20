@@ -1,75 +1,73 @@
-
-
-
 function something()
 {
 
-	localStorage.clear();
+	var x = window.localStorage.getItem('bbb'); // x = hh['bbb']
 
+	x = x * 1 + 1; // x = x + 1
 
+	window.localStorage.setItem('bbb', x); // hh['bbb'] = x
 
-				// BLOCK ADD TO LOCALSTOREGE VARIBLE
-	// var x = window.localStorage.getItem('bbb'); // x = hh['bbb']
-	// x = x * 1 + 1; // x = x + 1
-	// window.localStorage.setItem('bbb', x); // hh['bbb'] = x
-	// alert(x);
-
-};
-
-
+	alert(x);
+}
 
 function add_to_cart(id)
 {
-	let key = 'product_'+id;
-	let x =  window.localStorage.getItem(key);
-	
-	x = (x*1)+1;
-	window.localStorage.setItem(key,x);
-	update_order_items();
-};
+	var key = 'product_' + id;
 
+	var x = window.localStorage.getItem(key);
+	x = x * 1 + 1;
+	window.localStorage.setItem(key, x);
 
+	update_orders_input();
+	update_orders_button();
+}
 
-function cart_get_number_items()
+function update_orders_input()
+{
+	var orders = cart_get_orders();
+	$('#orders_input').val(orders);
+}
+
+function update_orders_button()
+{
+	var text = 'Cart (' + cart_get_number_of_items() + ')';
+	$('#orders_button').val(text);
+}
+
+function cart_get_number_of_items()
+{
+	var cnt = 0;
+
+	for(var i = 0; i < window.localStorage.length; i++)
 	{
-		let cnt = 0;
+		var key = window.localStorage.key(i); // получаем ключ
+		var value = window.localStorage.getItem(key); // получаем значение, аналог в ruby: hh[key] = x
 
-		for(let i = 0; i<window.localStorage.length; i++)
-			{
-				let key = window.localStorage.key(i);
-				let value = window.localStorage.getItem(key);
-
-				if(key.indexOf('product')==0)
-					{
-						cnt = cnt + value *1;				
-					}
-			}
-
-		return cnt;
-			
-	};
-
-function update_order_items()
-	{
-		let orders = cart_get_orders;
-		$("#orders_input").val(orders);
+		if(key.indexOf('product_') == 0)
+		{
+			cnt = cnt + value * 1;
+		}
 	}
 
+	return cnt;
+}
+
 function cart_get_orders()
+{
+	var orders = '';
+
+	for(var i = 0; i < window.localStorage.length; i++)
 	{
-		let orders = "";
+		var key = window.localStorage.key(i); // получаем ключ
+		var value = window.localStorage.getItem(key); // получаем значение, аналог в ruby: hh[key] = x
 
-		for(let i = 0; i<window.localStorage.length; i++)
+		if(key.indexOf('product_') == 0)
 		{
-			let key = window.localStorage.key(i);
-			let value = window.localStorage.getItem(key);
-
-			if(key.indexOf('product')==0)
-				{
-					orders = orders + key +"="+ value + ",";				
-				}
+			orders = orders + key + '=' + value + ',';
 		}
+	}
 
-		return orders;
-			
-	};
+	return orders;
+}
+
+

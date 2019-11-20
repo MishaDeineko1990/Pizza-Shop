@@ -1,7 +1,9 @@
-class CreateAddProduction < ActiveRecord::Migration[6.0]
+class AddProducts < ActiveRecord::Migration[6.0]
   def change
 
-  	Product.create ({
+
+
+	Product.create ({
   		:title => 'Hawaiian',
   		:description => 'This is Hawaiian pizza',
   		:price => 350,
@@ -33,8 +35,7 @@ class CreateAddProduction < ActiveRecord::Migration[6.0]
   		:is_best_offer => false,
   		:path_to_image => '/images/veg.jpg'
   		})
-  
+
 
   end
-
 end

@@ -1,4 +1,3 @@
-
 <h2>Welcome to Pizza Shop!</h2>
 
 <div class="row">
@@ -18,19 +17,16 @@
 		</div>
 
 		<div>
-			Size: <%= p.size %>
+			Size: <%= p.size %> cm
 		</div>
 
 		<div>
-			Price: <%= p.price %>
+			Price: <%= p.price %> rub
 		</div>
-
-		<br/>
 
 		<div>
-			<button class="btn btn-sm btn-success" onclick="add_to_cart(<%= p.id %>)">add to cart</button>
+			<button class="btn btn-sm btn-success" onclick="add_to_cart(<%= p.id %>)">Add to cart</button>
 		</div>
-
 	</div>
 	<% end %>
 
@@ -39,6 +35,3 @@
 <br />
 
 <button class="btn btn-primary" onclick="something()">Click me!</button>
-
-
-
