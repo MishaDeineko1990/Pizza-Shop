@@ -2,7 +2,6 @@ class AddProducts < ActiveRecord::Migration[6.0]
   def change
 
 
-
 	Product.create ({
   		:title => 'Hawaiian',
   		:description => 'This is Hawaiian pizza',
